@@ -12,6 +12,8 @@ test.describe('Component Rendering', () => {
 
     // Request a component
     await input.fill('show me a table with 5 rows');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
 
     // Wait for response
@@ -28,6 +30,8 @@ test.describe('Component Rendering', () => {
 
     // Request a chart
     await input.fill('create a chart showing monthly sales');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
 
     // Wait for response and rendering
@@ -44,11 +48,15 @@ test.describe('Component Rendering', () => {
 
     // Send first message requesting a component
     await input.fill('show me a list of items');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(1000);
 
     // Send second message
     await input.fill('what about a card view?');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(1000);
 
@@ -67,6 +75,8 @@ test.describe('Component Rendering', () => {
     // Rapid requests
     for (let i = 0; i < 3; i++) {
       await input.fill(`Generate component ${i + 1}`);
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
       await sendButton.first().click();
       await page.waitForTimeout(300);
     }
@@ -84,6 +94,8 @@ test.describe('Component Rendering', () => {
 
     // Send message requesting component
     await input.fill('display a form');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(2000);
 
@@ -113,6 +125,8 @@ test.describe('Component Rendering', () => {
 
     for (const message of messages) {
       await input.fill(message);
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
       await sendButton.first().click();
       await page.waitForTimeout(500);
     }
@@ -134,6 +148,8 @@ test.describe('Component Rendering', () => {
 
     // Send request
     await input.fill('generate a complex dashboard');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
 
     // Small wait to see if loading state appears
@@ -158,6 +174,8 @@ test.describe('Component Rendering', () => {
 
     // Send first component request
     await input.fill('table with data');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(1000);
 
@@ -167,6 +185,8 @@ test.describe('Component Rendering', () => {
 
     // Send second component request
     await input.fill('chart with stats');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(1000);
 

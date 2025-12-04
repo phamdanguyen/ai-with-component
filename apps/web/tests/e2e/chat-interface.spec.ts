@@ -45,6 +45,8 @@ test.describe('ChatInterface Component', () => {
 
     // Type message
     await input.fill('Hello ChatGPT');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await expect(sendButton).not.toBeDisabled();
 
     // Clear input
@@ -58,6 +60,8 @@ test.describe('ChatInterface Component', () => {
 
     // Send message
     await input.fill('Show me a table');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
 
     // Wait for message to appear
@@ -77,6 +81,8 @@ test.describe('ChatInterface Component', () => {
 
     // Send message
     await input.fill('test message');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
 
     // Wait a bit for loading state to appear
@@ -96,6 +102,8 @@ test.describe('ChatInterface Component', () => {
 
     // Send a message first
     await input.fill('test');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(500);
 
@@ -115,6 +123,8 @@ test.describe('ChatInterface Component', () => {
 
     // Send message
     await input.fill('What is your name?');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
 
     // Wait for response (up to 5 seconds)
@@ -131,11 +141,15 @@ test.describe('ChatInterface Component', () => {
 
     // Send first message
     await input.fill('First message');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(500);
 
     // Send second message
     await input.fill('Second message');
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
     await sendButton.first().click();
     await page.waitForTimeout(500);
 
@@ -157,6 +171,8 @@ test.describe('ChatInterface Component', () => {
     // Send multiple messages to fill the chat
     for (let i = 0; i < 3; i++) {
       await input.fill(`Message ${i + 1}`);
+    // Wait for button to be enabled after input is filled
+    await expect(sendButton).not.toBeDisabled();
       await sendButton.first().click();
       await page.waitForTimeout(300);
     }

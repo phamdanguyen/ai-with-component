@@ -14,6 +14,10 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request a card component
       await input.fill('Show me a KPI card with sales metrics');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       // Wait for response
@@ -31,6 +35,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request multiple cards with different variants
       await input.fill('Create cards showing success, warning, error, and info variants');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2000);
@@ -47,6 +53,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request card with icon/image
       await input.fill('Show a card with icon and background image');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2000);
@@ -68,6 +76,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request line chart
       await input.fill('Create a line chart showing quarterly sales growth');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -89,6 +99,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request bar chart
       await input.fill('Show a bar chart comparing quarterly revenue');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -104,6 +116,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request pie chart
       await input.fill('Create a pie chart showing market share distribution');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -119,6 +133,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request chart
       await input.fill('Show chart with tooltip support');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -148,6 +164,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request chart
       await input.fill('Show responsive chart for mobile');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -167,6 +185,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request table
       await input.fill('Show me a table with customer data including name, email, and status');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -190,6 +210,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request sortable table
       await input.fill('Create a sortable table with product inventory');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -213,6 +235,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request table with many rows (triggers pagination)
       await input.fill('Show a table with 100+ rows of data with pagination');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -233,6 +257,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request table
       await input.fill('Display table with striped rows for better readability');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -251,6 +277,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request table
       await input.fill('Show table responsive on mobile');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -270,6 +298,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request form
       await input.fill('Create a form with name, email, and message fields');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -288,6 +318,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request form with validation
       await input.fill('Create a form with email validation and required fields');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -307,6 +339,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request form with multiple field types
       await input.fill('Create form with select dropdown, checkboxes, and radio buttons');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -326,6 +360,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request form
       await input.fill('Show form with organized layout');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -345,6 +381,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request list
       await input.fill('Show me a list of top 10 products with descriptions');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -363,6 +401,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request searchable list
       await input.fill('Create a searchable list of team members');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -381,6 +421,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request list with selectable items
       await input.fill('Show list with checkboxes to select multiple items');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -398,6 +440,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request list with badges
       await input.fill('Display list items with status badges (active, inactive, pending)');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -418,6 +462,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request slides
       await input.fill('Create a presentation slide with Previous and Next buttons');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -436,6 +482,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request slides
       await input.fill('Show slides with dot navigation indicators');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -453,6 +501,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request slides with auto-play
       await input.fill('Create auto-playing carousel that rotates every 5 seconds');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -479,6 +529,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request slides
       await input.fill('Show slides with mobile swipe support');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -499,6 +551,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request report
       await input.fill('Generate a business report with executive summary and detailed sections');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -517,6 +571,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request printable report
       await input.fill('Create report with print button for PDF export');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -534,6 +590,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request report with metadata
       await input.fill('Generate report with author name, date, and document metadata');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -551,6 +609,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request long report
       await input.fill('Create multi-page report with page breaks and proper formatting');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -568,6 +628,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request report
       await input.fill('Generate professionally formatted report suitable for printing');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
 
       await page.waitForTimeout(2500);
@@ -588,16 +650,22 @@ test.describe('Component-Specific Rendering', () => {
 
       // Request first component
       await input.fill('Show me a chart');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
       await page.waitForTimeout(1500);
 
       // Request second component
       await input.fill('Now show a table');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
       await page.waitForTimeout(1500);
 
       // Request third component
       await input.fill('And add a card');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
       await page.waitForTimeout(1500);
 
@@ -617,6 +685,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Send message that might cause invalid component
       await input.fill('Create invalid component with bad data');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
       await page.waitForTimeout(2000);
 
@@ -627,6 +697,8 @@ test.describe('Component-Specific Rendering', () => {
 
       // Should still be able to send another message
       await input.fill('Next message');
+      // Wait for button to be enabled after input is filled
+      await expect(sendButton).not.toBeDisabled();
       await sendButton.click();
       await page.waitForTimeout(500);
 
