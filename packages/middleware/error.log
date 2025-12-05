@@ -1,0 +1,957 @@
+2025-12-05T17:37:03.072Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:03.139Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:04.105Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:04.374Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:04.037Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:04.721Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.396Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.525Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.691Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.683Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.781Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.853Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.879Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.892Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:05.957Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:06.174Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:06.349Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:06.327Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:07.438Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:07.707Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:07.820Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:07.930Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:08.293Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:08.698Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:08.912Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:09.025Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:09.514Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:10.405Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+
+2025-12-05T17:37:10.765Z - Error: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+Stack: ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "message"
+    ],
+    "message": "Required"
+  }
+]
+    at Object.get error [as error] (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodObject.parse (file:///D:/code/all-in-one-chat/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at Object.<anonymous> (D:\code\all-in-one-chat\packages\middleware\src\server.ts:265:47)
+    at preHandlerCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:139:37)
+    at validationCompleted (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:123:5)
+    at preValidationCallback (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:100:5)
+    at handler (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\handleRequest.js:77:7)
+    at D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:199:9
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at done (D:\code\all-in-one-chat\node_modules\.pnpm\fastify@4.29.1\node_modules\fastify\lib\contentTypeParser.js:192:14)
+

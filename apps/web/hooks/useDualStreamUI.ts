@@ -24,11 +24,14 @@ export interface DualStreamState {
   isTextReady: boolean;
   isComponentReady: boolean;
   error: string | null;
+  retryCount: number;
+  lastMessage: string | null;
 }
 
 export interface UseDualStreamUIReturn {
   state: DualStreamState;
   sendMessage: (message: string, sessionId?: string) => Promise<void>;
+  retry: () => Promise<void>;
   reset: () => void;
 }
 
@@ -38,6 +41,8 @@ export interface UseDualStreamUIReturn {
  * @param sessionId - Optional session ID for conversation tracking
  * @returns State and functions for managing dual-stream UI
  */
+const MAX_RETRIES = 2;
+
 export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
   const [state, setState] = useState<DualStreamState>({
     textSummary: '',
@@ -46,6 +51,8 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
     isTextReady: false,
     isComponentReady: false,
     error: null,
+    retryCount: 0,
+    lastMessage: null,
   });
 
   /**
@@ -54,14 +61,16 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
    */
   const sendMessage = useCallback(
     async (message: string, customSessionId?: string) => {
-      setState({
+      setState((prev) => ({
         textSummary: '',
         componentSpec: null,
         isLoading: true,
         isTextReady: false,
         isComponentReady: false,
         error: null,
-      });
+        retryCount: prev.retryCount,
+        lastMessage: message,
+      }));
 
       try {
         let fullTextSummary = '';
@@ -88,6 +97,7 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
             // Handle component chunks - update when ready
             if (chunk.type === 'component') {
               fullComponentSpec = chunk.data as ComponentSpec;
+              console.log('[useDualStreamUI] Received component chunk:', fullComponentSpec);
               setState((prev) => ({
                 ...prev,
                 componentSpec: fullComponentSpec,
@@ -121,8 +131,22 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
             customSessionId || sessionId
           );
 
+          // Debug logging for component integration
+          console.log('[useDualStreamUI] API Response:', response);
+
           fullTextSummary = response.textSummary || '';
           fullComponentSpec = response.componentSpec || null;
+
+          // Debug: Log component spec details
+          if (fullComponentSpec) {
+            console.log('[useDualStreamUI] ComponentSpec received:', {
+              type: fullComponentSpec.type,
+              id: fullComponentSpec.id,
+              props: fullComponentSpec.props,
+            });
+          } else {
+            console.log('[useDualStreamUI] No componentSpec in response');
+          }
 
           // Update state with complete response
           setState((prev) => ({
@@ -146,20 +170,39 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : 'Unknown error';
 
-        setState({
+        setState((prev) => ({
           textSummary: '',
           componentSpec: null,
           isLoading: false,
           isTextReady: false,
           isComponentReady: false,
           error: errorMessage,
-        });
+          retryCount: prev.retryCount,
+          lastMessage: prev.lastMessage,
+        }));
 
         console.error('API error:', err);
       }
     },
     [sessionId]
   );
+
+  /**
+   * Retry last failed message
+   */
+  const retry = useCallback(async () => {
+    if (!state.lastMessage || state.retryCount >= MAX_RETRIES) {
+      return;
+    }
+
+    setState((prev) => ({
+      ...prev,
+      retryCount: prev.retryCount + 1,
+      error: null,
+    }));
+
+    await sendMessage(state.lastMessage, sessionId);
+  }, [state.lastMessage, state.retryCount, sendMessage, sessionId]);
 
   /**
    * Reset state
@@ -172,8 +215,10 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
       isTextReady: false,
       isComponentReady: false,
       error: null,
+      retryCount: 0,
+      lastMessage: null,
     });
   }, []);
 
-  return { state, sendMessage, reset };
+  return { state, sendMessage, retry, reset };
 }

@@ -1,0 +1,912 @@
+{
+  "test-session-e2e": [
+    {
+      "role": "user",
+      "content": "Show me sales data",
+      "timestamp": "2025-12-05T17:37:04.134Z",
+      "id": "msg_1764956224136_o4xdr",
+      "sessionId": "test-session-e2e"
+    },
+    {
+      "role": "user",
+      "content": "Show me sales data",
+      "timestamp": "2025-12-05T17:37:04.472Z",
+      "id": "msg_1764956224474_oaa1kv",
+      "sessionId": "test-session-e2e"
+    },
+    {
+      "role": "user",
+      "content": "Show me sales data",
+      "timestamp": "2025-12-05T17:37:04.487Z",
+      "id": "msg_1764956224489_kaesn",
+      "sessionId": "test-session-e2e"
+    },
+    {
+      "role": "user",
+      "content": "Show me sales data",
+      "timestamp": "2025-12-05T17:37:08.187Z",
+      "id": "msg_1764956228190_8yh3ze",
+      "sessionId": "test-session-e2e"
+    },
+    {
+      "role": "assistant",
+      "content": "The weather is currently pleasant with partly cloudy skies. Temperature is around 22°C (72°F) with moderate humidity. Light breeze from the west.",
+      "componentSpec": {
+        "type": "card",
+        "id": "mock-card-001",
+        "props": {
+          "title": "Mock Component",
+          "description": "This is a mock component generated for testing purposes",
+          "content": "Response to: \nshow me sales data\n\n..."
+        }
+      },
+      "timestamp": "2025-12-05T17:37:08.813Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 36,
+            "condition": "Cloudy",
+            "humidity": 61
+          },
+          "executionTime": 3
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 961
+      },
+      "id": "msg_1764956228813_qeap3k",
+      "sessionId": "test-session-e2e"
+    }
+  ],
+  "test-stream": [
+    {
+      "role": "user",
+      "content": "Show sales",
+      "timestamp": "2025-12-05T17:37:04.659Z",
+      "id": "msg_1764956224659_f7zbe",
+      "sessionId": "test-stream"
+    },
+    {
+      "role": "user",
+      "content": "Show sales",
+      "timestamp": "2025-12-05T17:37:09.142Z",
+      "id": "msg_1764956229142_uv0gkn",
+      "sessionId": "test-stream"
+    },
+    {
+      "role": "assistant",
+      "content": "The weather is currently pleasant with partly cloudy skies. Temperature is around 22°C (72°F) with moderate humidity. Light breeze from the west. ",
+      "componentSpec": {
+        "type": "card",
+        "id": "mock-card-001",
+        "props": {
+          "title": "Mock Component",
+          "description": "This is a mock component generated for testing purposes",
+          "content": "Response to: \nshow sales\n\n..."
+        }
+      },
+      "timestamp": "2025-12-05T17:37:13.250Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 21,
+            "condition": "Sunny",
+            "humidity": 79
+          },
+          "executionTime": 1
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 4143
+      },
+      "id": "msg_1764956233250_8ahde",
+      "sessionId": "test-stream"
+    }
+  ],
+  "test-session-123": [
+    {
+      "role": "user",
+      "content": "Show me a bar chart of monthly revenue",
+      "timestamp": "2025-12-05T17:37:04.679Z",
+      "id": "msg_1764956224680_gs1b1d",
+      "sessionId": "test-session-123"
+    },
+    {
+      "role": "assistant",
+      "content": "Today's date is December 4, 2025. It's a Wednesday, marking the start of an exciting week ahead.",
+      "componentSpec": {
+        "type": "chart",
+        "id": "mock-chart-001",
+        "props": {
+          "chartType": "bar",
+          "title": "Monthly Revenue",
+          "data": [
+            {
+              "month": "Jan",
+              "revenue": 5000
+            },
+            {
+              "month": "Feb",
+              "revenue": 7000
+            },
+            {
+              "month": "Mar",
+              "revenue": 12000
+            }
+          ],
+          "xAxis": {
+            "key": "month"
+          },
+          "yAxis": {
+            "key": "revenue"
+          }
+        }
+      },
+      "timestamp": "2025-12-05T17:37:05.400Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 18,
+            "condition": "Cloudy",
+            "humidity": 49
+          },
+          "executionTime": 3
+        },
+        "get_current_date": {
+          "result": "2025-12-05T17:37:04.715Z",
+          "executionTime": 0
+        },
+        "calculate": {
+          "result": null,
+          "error": "Invalid expression: only numbers and +, -, *, / allowed"
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 1069
+      },
+      "id": "msg_1764956225400_zbinsf",
+      "sessionId": "test-session-123"
+    },
+    {
+      "role": "user",
+      "content": "Show me a bar chart of monthly revenue",
+      "timestamp": "2025-12-05T17:37:06.320Z",
+      "id": "msg_1764956226324_ls6j4",
+      "sessionId": "test-session-123"
+    },
+    {
+      "role": "user",
+      "content": "Show me a bar chart of monthly revenue",
+      "timestamp": "2025-12-05T17:37:06.502Z",
+      "id": "msg_1764956226502_tktxg",
+      "sessionId": "test-session-123"
+    },
+    {
+      "role": "assistant",
+      "content": "Today's date is December 4, 2025. It's a Wednesday, marking the start of an exciting week ahead.",
+      "componentSpec": {
+        "type": "chart",
+        "id": "mock-chart-001",
+        "props": {
+          "chartType": "bar",
+          "title": "Monthly Revenue",
+          "data": [
+            {
+              "month": "Jan",
+              "revenue": 5000
+            },
+            {
+              "month": "Feb",
+              "revenue": 7000
+            },
+            {
+              "month": "Mar",
+              "revenue": 12000
+            }
+          ],
+          "xAxis": {
+            "key": "month"
+          },
+          "yAxis": {
+            "key": "revenue"
+          }
+        }
+      },
+      "timestamp": "2025-12-05T17:37:07.081Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 33,
+            "condition": "Sunny",
+            "humidity": 43
+          },
+          "executionTime": 3
+        },
+        "get_current_date": {
+          "result": "2025-12-05T17:37:06.514Z",
+          "executionTime": 0
+        },
+        "calculate": {
+          "result": null,
+          "error": "Invalid expression: only numbers and +, -, *, / allowed"
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 798
+      },
+      "id": "msg_1764956227081_nesl0k",
+      "sessionId": "test-session-123"
+    },
+    {
+      "role": "user",
+      "content": "Show me a bar chart of monthly revenue",
+      "timestamp": "2025-12-05T17:37:08.908Z",
+      "id": "msg_1764956228909_23satp",
+      "sessionId": "test-session-123"
+    },
+    {
+      "role": "user",
+      "content": "Show me a bar chart of monthly revenue",
+      "timestamp": "2025-12-05T17:37:09.094Z",
+      "id": "msg_1764956229095_d5cgi",
+      "sessionId": "test-session-123"
+    }
+  ],
+  "test-session-tool": [
+    {
+      "role": "user",
+      "content": "Calculate 50 + 100",
+      "timestamp": "2025-12-05T17:37:05.533Z",
+      "id": "msg_1764956225534_3ag92",
+      "sessionId": "test-session-tool"
+    },
+    {
+      "role": "assistant",
+      "content": "The weather is currently pleasant with partly cloudy skies. Temperature is around 22°C (72°F) with moderate humidity. Light breeze from the west.",
+      "componentSpec": {
+        "type": "card",
+        "id": "mock-card-001",
+        "props": {
+          "title": "Mock Component",
+          "description": "This is a mock component generated for testing purposes",
+          "content": "Response to: \ncalculate 50 + 100\n\n..."
+        }
+      },
+      "timestamp": "2025-12-05T17:37:06.263Z",
+      "toolResults": {
+        "calculate": {
+          "result": {
+            "expression": "50 + 100",
+            "result": 150
+          },
+          "executionTime": 2
+        },
+        "get_weather": {
+          "result": {
+            "temperature": 18,
+            "condition": "Cloudy",
+            "humidity": 49
+          },
+          "executionTime": 8
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 730
+      },
+      "id": "msg_1764956226263_4u3g3c",
+      "sessionId": "test-session-tool"
+    },
+    {
+      "role": "user",
+      "content": "Calculate 50 + 100",
+      "timestamp": "2025-12-05T17:37:07.115Z",
+      "id": "msg_1764956227115_itn0tk",
+      "sessionId": "test-session-tool"
+    },
+    {
+      "role": "assistant",
+      "content": "The weather is currently pleasant with partly cloudy skies. Temperature is around 22°C (72°F) with moderate humidity. Light breeze from the west.",
+      "componentSpec": {
+        "type": "card",
+        "id": "mock-card-001",
+        "props": {
+          "title": "Mock Component",
+          "description": "This is a mock component generated for testing purposes",
+          "content": "Response to: \ncalculate 50 + 100\n\n..."
+        }
+      },
+      "timestamp": "2025-12-05T17:37:07.922Z",
+      "toolResults": {
+        "calculate": {
+          "result": {
+            "expression": "50 + 100",
+            "result": 150
+          },
+          "executionTime": 0
+        },
+        "get_weather": {
+          "result": {
+            "temperature": 33,
+            "condition": "Sunny",
+            "humidity": 43
+          },
+          "executionTime": 1
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 807
+      },
+      "id": "msg_1764956227922_h57e6",
+      "sessionId": "test-session-tool"
+    }
+  ],
+  "test-persistence-1764957515893": [
+    {
+      "role": "user",
+      "content": "Hello Verification 1764957515893",
+      "timestamp": "2025-12-05T17:58:36.017Z",
+      "id": "msg_1764957516018_7rajj",
+      "sessionId": "test-persistence-1764957515893"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi there! The weather today is sunny with a temperature of 21 degrees and 69% humidity. Is there anything else I can help you with regarding the weather or anything else?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "weather-summary-card",
+        "props": {
+          "title": "Weather Summary",
+          "content": "Temperature: 21°C\nCondition: Sunny\nHumidity: 69%"
+        }
+      },
+      "timestamp": "2025-12-05T17:58:37.306Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 21,
+            "condition": "Sunny",
+            "humidity": 69
+          },
+          "executionTime": 2
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 1293
+      },
+      "id": "msg_1764957517306_eri7lq",
+      "sessionId": "test-persistence-1764957515893"
+    }
+  ],
+  "session-1764957548964": [
+    {
+      "role": "user",
+      "content": "Tell me a long story about code",
+      "timestamp": "2025-12-05T17:59:08.965Z",
+      "id": "msg_1764957548965_b1br8",
+      "sessionId": "session-1764957548964"
+    },
+    {
+      "role": "assistant",
+      "content": "I don't have any code to explain. You provided data from `get_weather` and `get_current_date` functions, but not the code itself. If you provide code, I can explain its purpose, logic, and potential improvements.\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "weather-summary-card",
+        "props": {
+          "title": "Current Weather",
+          "content": "The current temperature is 21°C with Sunny conditions and 69% humidity. The current date is 2025-12-05T17:59:08.968Z.",
+          "variant": "info"
+        }
+      },
+      "timestamp": "2025-12-05T17:59:12.007Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 21,
+            "condition": "Sunny",
+            "humidity": 69
+          },
+          "executionTime": 0
+        },
+        "get_current_date": {
+          "result": "2025-12-05T17:59:08.968Z",
+          "executionTime": 0
+        },
+        "calculate": {
+          "result": null,
+          "error": "Invalid expression: only numbers and +, -, *, / allowed"
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 3042
+      },
+      "id": "msg_1764957552007_ry2vw",
+      "sessionId": "session-1764957548964"
+    }
+  ],
+  "session-1764957887108": [
+    {
+      "role": "user",
+      "content": "Hello",
+      "timestamp": "2025-12-05T18:04:47.108Z",
+      "id": "msg_1764957887108_ia14w",
+      "sessionId": "session-1764957887108"
+    },
+    {
+      "role": "assistant",
+      "content": "Hi there! It's great to connect with you.\n\nI'm here to help answer questions, offer insights, or just chat about anything on your mind. What can I do for you today?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "greeting-card",
+        "props": {
+          "title": "Hello!",
+          "content": "Welcome.",
+          "variant": "info"
+        }
+      },
+      "timestamp": "2025-12-05T18:04:49.219Z",
+      "toolResults": {},
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2111
+      },
+      "id": "msg_1764957889219_lqciq",
+      "sessionId": "session-1764957887108"
+    }
+  ],
+  "session-1764957904079": [
+    {
+      "role": "user",
+      "content": "Nói tiếng việt được không",
+      "timestamp": "2025-12-05T18:05:04.079Z",
+      "id": "msg_1764957904079_dero8p",
+      "sessionId": "session-1764957904079"
+    },
+    {
+      "role": "assistant",
+      "content": "Chào bạn! Rất vui được trò chuyện với bạn bằng tiếng Việt. Bạn có điều gì muốn hỏi mình không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "vietnamese-language-support",
+        "props": {
+          "title": "Vietnamese Language Support",
+          "content": "Tôi có thể nói tiếng Việt.",
+          "variant": "info"
+        }
+      },
+      "timestamp": "2025-12-05T18:05:06.441Z",
+      "toolResults": {},
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2362
+      },
+      "id": "msg_1764957906441_ajzms6j",
+      "sessionId": "session-1764957904079"
+    }
+  ],
+  "session-1764958091374": [
+    {
+      "role": "user",
+      "content": "Chào em",
+      "timestamp": "2025-12-05T18:08:11.381Z",
+      "id": "msg_1764958091381_m8y7mc",
+      "sessionId": "session-1764958091374"
+    },
+    {
+      "role": "assistant",
+      "content": "Chào bạn! Rất vui được trò chuyện với bạn. Bạn có điều gì muốn chia sẻ hoặc cần mình giúp đỡ không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "greeting-card",
+        "props": {
+          "title": "Chào em",
+          "content": "Welcome!",
+          "variant": "info"
+        }
+      },
+      "timestamp": "2025-12-05T18:08:13.851Z",
+      "toolResults": {
+        "calculate": {
+          "result": null,
+          "error": "Invalid expression: only numbers and +, -, *, / allowed"
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2476
+      },
+      "id": "msg_1764958093851_qqj4o",
+      "sessionId": "session-1764958091374"
+    }
+  ],
+  "session-1764958110172": [
+    {
+      "role": "user",
+      "content": "\"Mô hình đang dùng là gì",
+      "timestamp": "2025-12-05T18:08:30.173Z",
+      "id": "msg_1764958110173_2b6u52",
+      "sessionId": "session-1764958110172"
+    },
+    {
+      "role": "assistant",
+      "content": "Thông tin thời tiết hiện tại cho thấy trời đang nhiều mây, nhiệt độ là 36 độ C và độ ẩm là 50%. Bạn có muốn biết thêm thông tin gì khác không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "weather-summary",
+        "props": {
+          "title": "Thời tiết hiện tại",
+          "content": "Nhiệt độ: 36°C, Tình trạng: Nhiều mây, Độ ẩm: 50%"
+        }
+      },
+      "timestamp": "2025-12-05T18:08:32.291Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 36,
+            "condition": "Cloudy",
+            "humidity": 50
+          },
+          "executionTime": 1
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2119
+      },
+      "id": "msg_1764958112291_3kwwl",
+      "sessionId": "session-1764958110172"
+    }
+  ],
+  "session-1764958123821": [
+    {
+      "role": "user",
+      "content": "Á đù",
+      "timestamp": "2025-12-05T18:08:43.821Z",
+      "id": "msg_1764958123821_g0rrid",
+      "sessionId": "session-1764958123821"
+    },
+    {
+      "role": "assistant",
+      "content": "Ồ, bạn đang ngạc nhiên à? Nếu bạn muốn, mình có thể giải thích thêm về điều gì đó khiến bạn bất ngờ đó!",
+      "componentSpec": {
+        "type": "card",
+        "id": "greeting-card",
+        "props": {
+          "title": "Á đù",
+          "content": "A simple greeting card.",
+          "variant": "info"
+        }
+      },
+      "timestamp": "2025-12-05T18:08:45.929Z",
+      "toolResults": {},
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2108
+      },
+      "id": "msg_1764958125929_907zwc",
+      "sessionId": "session-1764958123821"
+    }
+  ],
+  "session-1764958140400": [
+    {
+      "role": "user",
+      "content": "Sao lại thế nhỉ",
+      "timestamp": "2025-12-05T18:09:00.400Z",
+      "id": "msg_1764958140401_7r9tzi",
+      "sessionId": "session-1764958140400"
+    },
+    {
+      "role": "assistant",
+      "content": "Thời tiết hôm nay hơi lạ phải không? Nhiệt độ 36 độ C nhưng lại nhiều mây và độ ẩm 50% đó. Bạn có muốn biết thêm thông tin gì nữa không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "weather-summary",
+        "props": {
+          "title": "Weather Summary",
+          "content": "Temperature: 36°C\nCondition: Cloudy\nHumidity: 50%"
+        }
+      },
+      "timestamp": "2025-12-05T18:09:02.847Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 36,
+            "condition": "Cloudy",
+            "humidity": 50
+          },
+          "executionTime": 1
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2447
+      },
+      "id": "msg_1764958142847_m9i2a8",
+      "sessionId": "session-1764958140400"
+    }
+  ],
+  "session-1764958290888": [
+    {
+      "role": "user",
+      "content": "Kinh đấy",
+      "timestamp": "2025-12-05T18:11:30.888Z",
+      "id": "msg_1764958290888_su4t2r",
+      "sessionId": "session-1764958290888"
+    },
+    {
+      "role": "assistant",
+      "content": "\"Kinh đấy\" is Vietnamese slang expressing surprise or admiration, similar to \"Wow!\" or \"That's impressive!\" in English. It's often used informally to acknowledge something cool or noteworthy that someone has done or said.\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "current-date-card",
+        "props": {
+          "title": "Current Date",
+          "content": "2025-12-05T18:11:30.891Z",
+          "variant": "info"
+        }
+      },
+      "timestamp": "2025-12-05T18:11:33.075Z",
+      "toolResults": {
+        "get_current_date": {
+          "result": "2025-12-05T18:11:30.891Z",
+          "executionTime": 0
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2187
+      },
+      "id": "msg_1764958293075_ugn0vq",
+      "sessionId": "session-1764958290888"
+    }
+  ],
+  "session-1764958305201": [
+    {
+      "role": "user",
+      "content": "Thông minh",
+      "timestamp": "2025-12-05T18:11:45.201Z",
+      "id": "msg_1764958305201_oag0ss",
+      "sessionId": "session-1764958305201"
+    },
+    {
+      "role": "assistant",
+      "content": "Thông minh có nghĩa là \"intelligent\" trong tiếng Anh đó! Bạn có muốn biết thêm về các loại trí thông minh khác nhau không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "current-date-card",
+        "props": {
+          "title": "Current Date",
+          "content": "2025-12-05T18:11:30.891Z"
+        }
+      },
+      "timestamp": "2025-12-05T18:11:47.230Z",
+      "toolResults": {
+        "get_current_date": {
+          "result": "2025-12-05T18:11:30.891Z",
+          "executionTime": 0
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2029
+      },
+      "id": "msg_1764958307230_qcsifg",
+      "sessionId": "session-1764958305201"
+    }
+  ],
+  "session-1764958384577": [
+    {
+      "role": "user",
+      "content": "Đúng là lấy con này làm front-end thì tốt",
+      "timestamp": "2025-12-05T18:13:04.577Z",
+      "id": "msg_1764958384577_57fp6b",
+      "sessionId": "session-1764958384577"
+    },
+    {
+      "role": "assistant",
+      "content": "Bạn nói đúng, nó rất tốt cho front-end! Bạn có muốn tôi gợi ý một vài thư viện hoặc framework phổ biến để bạn bắt đầu không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "frontend-recommendation",
+        "props": {
+          "title": "Frontend Framework Recommendation",
+          "content": "This framework is highly recommended for front-end development.",
+          "variant": "success"
+        }
+      },
+      "timestamp": "2025-12-05T18:13:07.219Z",
+      "toolResults": {},
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2642
+      },
+      "id": "msg_1764958387219_c1858r",
+      "sessionId": "session-1764958384577"
+    }
+  ],
+  "session-1764958620718": [
+    {
+      "role": "user",
+      "content": "Xem danh sách các đội bóng ngoại hạng anh",
+      "timestamp": "2025-12-05T18:17:00.718Z",
+      "id": "msg_1764958620718_d8tgy",
+      "sessionId": "session-1764958620718"
+    },
+    {
+      "role": "assistant",
+      "content": "Chào bạn! Dưới đây là danh sách các đội bóng ở giải Ngoại Hạng Anh: Arsenal, Aston Villa, Bournemouth, Brentford, Brighton & Hove Albion, Burnley, Chelsea, Crystal Palace, Everton, Liverpool, Luton Town, Manchester City, Manchester United, Newcastle United, Nottingham Forest, Sheffield United, Tottenham Hotspur, West Ham United, Wolverhampton Wanderers. Bạn có muốn biết thêm về đội bóng nào không?\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "weather-summary",
+        "props": {
+          "title": "Weather Summary",
+          "content": "Temperature: 21°C\nCondition: Rainy\nHumidity: 69%"
+        }
+      },
+      "timestamp": "2025-12-05T18:17:03.235Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 21,
+            "condition": "Rainy",
+            "humidity": 69
+          },
+          "executionTime": 1
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2517
+      },
+      "id": "msg_1764958623235_alpwtg",
+      "sessionId": "session-1764958620718"
+    }
+  ],
+  "session-1764958643470": [
+    {
+      "role": "user",
+      "content": "render 1 bảng được không",
+      "timestamp": "2025-12-05T18:17:23.470Z",
+      "id": "msg_1764958643470_f8v0j",
+      "sessionId": "session-1764958643470"
+    },
+    {
+      "role": "assistant",
+      "content": "Bạn muốn tôi tạo một bảng? Để tôi tạo cho bạn một bảng hữu ích, bạn có thể cho tôi biết bạn muốn bảng này có bao nhiêu cột và hàng không?\n",
+      "componentSpec": {
+        "type": "table",
+        "id": "simple-table",
+        "props": {
+          "title": "Simple Table",
+          "columns": [
+            {
+              "key": "col1",
+              "label": "Column 1"
+            },
+            {
+              "key": "col2",
+              "label": "Column 2"
+            }
+          ],
+          "data": [
+            {
+              "col1": "Data 1",
+              "col2": "Data 2"
+            },
+            {
+              "col1": "Data 3",
+              "col2": "Data 4"
+            }
+          ]
+        }
+      },
+      "timestamp": "2025-12-05T18:17:26.026Z",
+      "toolResults": {},
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2556
+      },
+      "id": "msg_1764958646026_ptnbwae",
+      "sessionId": "session-1764958643470"
+    }
+  ],
+  "session-1764960371383": [
+    {
+      "role": "user",
+      "content": "What is the date today?",
+      "timestamp": "2025-12-05T18:46:11.383Z",
+      "id": "msg_1764960371383_xl816l",
+      "sessionId": "session-1764960371383"
+    },
+    {
+      "role": "assistant",
+      "content": "Today is December 5th, 2025. The system knows the date and time precisely. You might also want to know the current time or weather conditions.\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "current-date-card",
+        "props": {
+          "title": "Current Date",
+          "content": "2025-12-05T18:46:11.386Z"
+        }
+      },
+      "timestamp": "2025-12-05T18:46:13.659Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 23,
+            "condition": "Sunny",
+            "humidity": 72
+          },
+          "executionTime": 1
+        },
+        "get_current_date": {
+          "result": "2025-12-05T18:46:11.386Z",
+          "executionTime": 0
+        },
+        "calculate": {
+          "result": null,
+          "error": "Invalid expression: only numbers and +, -, *, / allowed"
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2276
+      },
+      "id": "msg_1764960373659_petslm",
+      "sessionId": "session-1764960371383"
+    }
+  ],
+  "session-1764960392687": [
+    {
+      "role": "user",
+      "content": "What is the date today?",
+      "timestamp": "2025-12-05T18:46:32.687Z",
+      "id": "msg_1764960392687_jxfso",
+      "sessionId": "session-1764960392687"
+    },
+    {
+      "role": "assistant",
+      "content": "Today's date is December 5th, 2025. You can use this information for scheduling, reminders, or any date-related tasks you might have. Let me know if you need help with time zones or date conversions!\n",
+      "componentSpec": {
+        "type": "card",
+        "id": "current-date-card",
+        "props": {
+          "title": "Current Date",
+          "content": "2025-12-05T18:46:11.386Z"
+        }
+      },
+      "timestamp": "2025-12-05T18:46:34.926Z",
+      "toolResults": {
+        "get_weather": {
+          "result": {
+            "temperature": 23,
+            "condition": "Sunny",
+            "humidity": 72
+          },
+          "executionTime": 0
+        },
+        "get_current_date": {
+          "result": "2025-12-05T18:46:11.386Z",
+          "executionTime": 0
+        },
+        "calculate": {
+          "result": null,
+          "error": "Invalid expression: only numbers and +, -, *, / allowed"
+        }
+      },
+      "metadata": {
+        "modelUsed": "gemini-2.0-flash",
+        "executionTime": 2239
+      },
+      "id": "msg_1764960394926_w9ct4",
+      "sessionId": "session-1764960392687"
+    }
+  ]
+}

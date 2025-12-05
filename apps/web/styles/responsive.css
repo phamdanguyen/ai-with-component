@@ -1,0 +1,194 @@
+/**
+ * Responsive Design System
+ *
+ * Breakpoints:
+ * - Mobile: < 640px (default)
+ * - Tablet: 640px - 1024px
+ * - Desktop: > 1024px
+ */
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  /* Improve touch targets */
+  button {
+    @apply min-h-12 min-w-12;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply min-h-12;
+    font-size: 16px; /* Prevent auto-zoom on iOS */
+  }
+
+  /* Reduce padding on mobile */
+  .container {
+    @apply px-4;
+  }
+
+  /* Stack layouts on mobile */
+  .grid {
+    @apply grid-cols-1;
+  }
+
+  /* Hide complex elements on mobile if needed */
+  .hide-mobile {
+    @apply hidden;
+  }
+
+  /* Make images responsive */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Table optimization */
+  table {
+    @apply text-sm;
+  }
+
+  table th,
+  table td {
+    @apply px-2 py-1;
+  }
+
+  /* Form optimization */
+  form {
+    @apply space-y-3;
+  }
+
+  /* Reduce header size */
+  header {
+    @apply p-3;
+  }
+
+  /* Card adjustments */
+  .card {
+    @apply p-3;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .container {
+    @apply max-w-2xl;
+  }
+
+  .grid {
+    @apply grid-cols-2;
+  }
+
+  table {
+    @apply text-base;
+  }
+}
+
+/* Desktop Optimizations */
+@media (min-width: 1024px) {
+  .container {
+    @apply max-w-6xl;
+  }
+
+  .grid {
+    @apply grid-cols-3;
+  }
+
+  .max-width-full {
+    @apply w-full;
+  }
+
+  /* Multi-column layouts */
+  .side-by-side {
+    @apply flex gap-6;
+  }
+
+  .main {
+    @apply flex-1;
+  }
+
+  .sidebar {
+    @apply w-64;
+  }
+}
+
+/* Accessible Focus Styles */
+*:focus-visible {
+  @apply outline-blue-500 outline-2 outline-offset-2;
+}
+
+button:focus-visible {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    @apply shadow-none;
+  }
+
+  button,
+  a.btn {
+    @apply hidden;
+  }
+
+  body {
+    @apply bg-white text-black;
+  }
+
+  .no-print {
+    @apply hidden;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  page-break-inside: avoid;
+}
+
+/* Dark Mode Support (optional) */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply bg-gray-800 text-white border-gray-700;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    @apply !animate-none !transition-none;
+  }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: more) {
+  * {
+    @apply border-2;
+  }
+
+  button {
+    @apply font-bold;
+  }
+}

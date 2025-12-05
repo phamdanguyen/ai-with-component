@@ -1,0 +1,46 @@
+services:
+  # Frontend - Next.js
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: genui-frontend
+    ports:
+      - "8080:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://genui-middleware:3001/api
+      - BACKEND_API_URL=http://genui-middleware:3001/api
+    networks:
+      - genui-network
+    restart: unless-stopped
+
+  # Middleware - Fastify backend
+  middleware:
+    build:
+      context: .
+      dockerfile: packages/middleware/Dockerfile
+    container_name: genui-middleware
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - CORS_ORIGIN=http://genui-frontend:3000
+      - LOG_LEVEL=info
+    networks:
+      - genui-network
+    restart: unless-stopped
+    depends_on:
+      - frontend
+
+networks:
+  genui-network:
+    driver: bridge
+
+# Usage:
+# 1. Build images: docker-compose build
+# 2. Run services: docker-compose up -d
+# 3. View logs: docker-compose logs -f frontend
+# 4. Stop services: docker-compose down
