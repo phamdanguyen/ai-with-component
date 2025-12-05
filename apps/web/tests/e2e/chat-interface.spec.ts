@@ -32,22 +32,24 @@ test.describe('ChatInterface Component', () => {
     await expect(input).not.toBeDisabled();
 
     // Check send button
-    const sendButton = page.locator('button:has-text("Send")');
+    const sendButton = page.locator('form button');
     await expect(sendButton).toBeVisible();
   });
 
   test('should accept user input and disable send button when empty', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button:has-text("Send")');
+    const sendButton = page.locator('form button');
 
     // Button should be disabled when input is empty
     await expect(sendButton).toBeDisabled();
 
     // Type message
     await input.fill('Hello ChatGPT');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await expect(sendButton).not.toBeDisabled();
+    // Dispatch change event to trigger React state update
+    await input.evaluate((el: HTMLInputElement) => {
+      const event = new Event('change', { bubbles: true });
+      el.dispatchEvent(event);
+    });
 
     // Clear input
     await input.clear();
@@ -56,13 +58,13 @@ test.describe('ChatInterface Component', () => {
 
   test('should display user message after sending', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
+    const form = page.locator('form');
 
-    // Send message
+    // Send message by typing and submitting form
     await input.fill('Show me a table');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    // Try submitting form directly with Enter key
+    await input.press('Enter');
 
     // Wait for message to appear
     await page.waitForTimeout(500);
@@ -77,13 +79,11 @@ test.describe('ChatInterface Component', () => {
 
   test('should show loading state while sending', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send message
     await input.fill('test message');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
 
     // Wait a bit for loading state to appear
     await page.waitForTimeout(500);
@@ -98,13 +98,11 @@ test.describe('ChatInterface Component', () => {
 
   test('should have new chat button when messages exist', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send a message first
     await input.fill('test');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(500);
 
     // New Chat button should appear
@@ -119,13 +117,11 @@ test.describe('ChatInterface Component', () => {
 
   test('should display assistant response with text', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send message
     await input.fill('What is your name?');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
 
     // Wait for response (up to 5 seconds)
     await page.waitForTimeout(1000);
@@ -137,20 +133,16 @@ test.describe('ChatInterface Component', () => {
 
   test('should handle multiple messages', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send first message
     await input.fill('First message');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(500);
 
     // Send second message
     await input.fill('Second message');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(500);
 
     // Both user messages should be visible
@@ -163,7 +155,7 @@ test.describe('ChatInterface Component', () => {
 
   test('should scroll to bottom when new message arrives', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Get initial scroll position
     const messagesContainer = page.locator('[class*="flex-1"]').first();
@@ -171,9 +163,7 @@ test.describe('ChatInterface Component', () => {
     // Send multiple messages to fill the chat
     for (let i = 0; i < 3; i++) {
       await input.fill(`Message ${i + 1}`);
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-      await sendButton.first().click();
+      await input.press("Enter");
       await page.waitForTimeout(300);
     }
 

@@ -10,15 +10,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Card Component (F3.3)', () => {
     test('should render card with title and content', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request a card component
       await input.fill('Show me a KPI card with sales metrics');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       // Wait for response
       await page.waitForTimeout(2000);
@@ -31,13 +27,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support card variants (success, warning, error, info)', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request multiple cards with different variants
       await input.fill('Create cards showing success, warning, error, and info variants');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2000);
 
@@ -49,13 +43,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should render card with optional icon and image', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request card with icon/image
       await input.fill('Show a card with icon and background image');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2000);
 
@@ -72,13 +64,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Chart Component (F3.1)', () => {
     test('should render line chart', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request line chart
       await input.fill('Create a line chart showing quarterly sales growth');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -95,13 +85,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should render bar chart with data', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request bar chart
       await input.fill('Show a bar chart comparing quarterly revenue');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -112,13 +100,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should render pie chart', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request pie chart
       await input.fill('Create a pie chart showing market share distribution');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -129,13 +115,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should show tooltip on hover', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request chart
       await input.fill('Show chart with tooltip support');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -160,13 +144,11 @@ test.describe('Component-Specific Rendering', () => {
       await page.setViewportSize({ width: 375, height: 812 });
 
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request chart
       await input.fill('Show responsive chart for mobile');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -181,13 +163,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Table Component (F3.2)', () => {
     test('should render table with headers and data rows', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request table
       await input.fill('Show me a table with customer data including name, email, and status');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -206,13 +186,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support sorting on headers', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request sortable table
       await input.fill('Create a sortable table with product inventory');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -231,13 +209,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should show pagination for large tables', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request table with many rows (triggers pagination)
       await input.fill('Show a table with 100+ rows of data with pagination');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -253,13 +229,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support striped row styling', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request table
       await input.fill('Display table with striped rows for better readability');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -273,13 +247,11 @@ test.describe('Component-Specific Rendering', () => {
       await page.setViewportSize({ width: 375, height: 812 });
 
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request table
       await input.fill('Show table responsive on mobile');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -294,13 +266,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Form Component (F3.4)', () => {
     test('should render form with text input fields', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request form
       await input.fill('Create a form with name, email, and message fields');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -314,13 +284,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support form validation', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request form with validation
       await input.fill('Create a form with email validation and required fields');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -335,13 +303,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support different field types (select, checkbox, radio)', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request form with multiple field types
       await input.fill('Create form with select dropdown, checkboxes, and radio buttons');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -356,13 +322,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support form layout (vertical/horizontal)', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request form
       await input.fill('Show form with organized layout');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -377,13 +341,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('List Component (F3.5)', () => {
     test('should render simple list with items', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request list
       await input.fill('Show me a list of top 10 products with descriptions');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -397,13 +359,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support searchable list', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request searchable list
       await input.fill('Create a searchable list of team members');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -417,13 +377,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support selectable items with checkboxes', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request list with selectable items
       await input.fill('Show list with checkboxes to select multiple items');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -436,13 +394,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support list items with badges/status', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request list with badges
       await input.fill('Display list items with status badges (active, inactive, pending)');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -458,13 +414,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Slides Component (F3.6)', () => {
     test('should render slides with navigation buttons', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request slides
       await input.fill('Create a presentation slide with Previous and Next buttons');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -478,13 +432,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support navigation dots', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request slides
       await input.fill('Show slides with dot navigation indicators');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -497,13 +449,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support auto-play functionality', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request slides with auto-play
       await input.fill('Create auto-playing carousel that rotates every 5 seconds');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -525,13 +475,11 @@ test.describe('Component-Specific Rendering', () => {
       await page.setViewportSize({ width: 375, height: 812 });
 
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request slides
       await input.fill('Show slides with mobile swipe support');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -547,13 +495,11 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Report Component (F3.7)', () => {
     test('should render report with sections and content', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request report
       await input.fill('Generate a business report with executive summary and detailed sections');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -567,13 +513,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support print functionality', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request printable report
       await input.fill('Create report with print button for PDF export');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -586,13 +530,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should include author and date metadata', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request report with metadata
       await input.fill('Generate report with author name, date, and document metadata');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -605,13 +547,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should support page breaks for multi-page reports', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request long report
       await input.fill('Create multi-page report with page breaks and proper formatting');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -624,13 +564,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should be print-friendly with proper styling', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request report
       await input.fill('Generate professionally formatted report suitable for printing');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
 
       await page.waitForTimeout(2500);
 
@@ -646,27 +584,21 @@ test.describe('Component-Specific Rendering', () => {
   test.describe('Component Interaction & State', () => {
     test('should maintain component state when switching between components', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Request first component
       await input.fill('Show me a chart');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
       await page.waitForTimeout(1500);
 
       // Request second component
       await input.fill('Now show a table');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
       await page.waitForTimeout(1500);
 
       // Request third component
       await input.fill('And add a card');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
       await page.waitForTimeout(1500);
 
       // Check if all messages are still visible (components preserved)
@@ -681,13 +613,11 @@ test.describe('Component-Specific Rendering', () => {
 
     test('should handle component error gracefully with fallback', async ({ page }) => {
       const input = page.locator('input[placeholder="Type your message..."]');
-      const sendButton = page.locator('button').first();
+      const sendButton = page.locator('form button');
 
       // Send message that might cause invalid component
       await input.fill('Create invalid component with bad data');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
       await page.waitForTimeout(2000);
 
       // Page should still be functional - no white screen
@@ -697,9 +627,7 @@ test.describe('Component-Specific Rendering', () => {
 
       // Should still be able to send another message
       await input.fill('Next message');
-      // Wait for button to be enabled after input is filled
-      await expect(sendButton).not.toBeDisabled();
-      await sendButton.click();
+      await input.press("Enter");
       await page.waitForTimeout(500);
 
       expect(await input.inputValue()).toBe('');

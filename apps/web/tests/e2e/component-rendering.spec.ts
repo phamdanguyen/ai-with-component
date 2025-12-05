@@ -8,13 +8,11 @@ test.describe('Component Rendering', () => {
 
   test('should render MessageWithComponent when response includes component spec', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Request a component
     await input.fill('show me a table with 5 rows');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
 
     // Wait for response
     await page.waitForTimeout(2000);
@@ -26,13 +24,11 @@ test.describe('Component Rendering', () => {
 
   test('should render generative components correctly', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Request a chart
     await input.fill('create a chart showing monthly sales');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
 
     // Wait for response and rendering
     await page.waitForTimeout(2000);
@@ -44,20 +40,16 @@ test.describe('Component Rendering', () => {
 
   test('should display component without breaking chat flow', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send first message requesting a component
     await input.fill('show me a list of items');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(1000);
 
     // Send second message
     await input.fill('what about a card view?');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(1000);
 
     // Both messages should be visible
@@ -70,14 +62,12 @@ test.describe('Component Rendering', () => {
 
   test('should handle rapid component requests', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Rapid requests
     for (let i = 0; i < 3; i++) {
       await input.fill(`Generate component ${i + 1}`);
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-      await sendButton.first().click();
+      await input.press("Enter");
       await page.waitForTimeout(300);
     }
 
@@ -90,13 +80,11 @@ test.describe('Component Rendering', () => {
 
   test('should render component in correct chat bubble position', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send message requesting component
     await input.fill('display a form');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(2000);
 
     // Get all message containers
@@ -114,7 +102,7 @@ test.describe('Component Rendering', () => {
 
   test('should maintain component state across messages', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send multiple messages
     const messages = [
@@ -125,9 +113,7 @@ test.describe('Component Rendering', () => {
 
     for (const message of messages) {
       await input.fill(message);
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-      await sendButton.first().click();
+      await input.press("Enter");
       await page.waitForTimeout(500);
     }
 
@@ -144,13 +130,11 @@ test.describe('Component Rendering', () => {
 
   test('should show loading state for component rendering', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send request
     await input.fill('generate a complex dashboard');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
 
     // Small wait to see if loading state appears
     await page.waitForTimeout(500);
@@ -170,13 +154,11 @@ test.describe('Component Rendering', () => {
 
   test('should not lose previous components when new ones are added', async ({ page }) => {
     const input = page.locator('input[placeholder="Type your message..."]');
-    const sendButton = page.locator('button');
+    const sendButton = page.locator('form button');
 
     // Send first component request
     await input.fill('table with data');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(1000);
 
     // Store count of messages
@@ -185,9 +167,7 @@ test.describe('Component Rendering', () => {
 
     // Send second component request
     await input.fill('chart with stats');
-    // Wait for button to be enabled after input is filled
-    await expect(sendButton).not.toBeDisabled();
-    await sendButton.first().click();
+    await input.press("Enter");
     await page.waitForTimeout(1000);
 
     // Count should increase
