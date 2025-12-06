@@ -28,14 +28,32 @@ const componentMap: Record<ComponentSpec['type'], React.ComponentType<any>> = {
   report: Report,
 };
 
+import { CrayonRenderer } from './CrayonRenderer';
+
 export const DynamicRenderer: React.FC<DynamicRendererProps> = ({ spec, className, onError }) => {
+  // Use CrayonRenderer for supported types
+  if (spec.type === 'card' || spec.type === 'table') {
+    return (
+      <div className={className} data-component-id={spec.id} data-component-type={spec.type}>
+        <ErrorBoundary componentName={spec.type} onError={onError}>
+          <CrayonRenderer spec={spec} />
+        </ErrorBoundary>
+      </div>
+    );
+  }
+
   const Component = componentMap[spec.type];
 
   if (!Component) {
     console.warn(`Unknown component type: ${spec.type}`);
+    // Try Crayon renderer as generic fallback for unknown types?
+    // For now, use existing fallback or try Crayon if it's not mapped
     return (
-      <div className="p-4 border border-yellow-200 bg-yellow-50 text-yellow-800 rounded">
-        Unknown component type: <strong>{spec.type}</strong>
+      <div className={className} data-component-id={spec.id} data-component-type={spec.type}>
+        <ErrorBoundary componentName={spec.type} onError={onError}>
+          {/* Fallback to CrayonRenderer which can handle generic display */}
+          <CrayonRenderer spec={spec} />
+        </ErrorBoundary>
       </div>
     );
   }
@@ -53,3 +71,34 @@ export const DynamicRenderer: React.FC<DynamicRendererProps> = ({ spec, classNam
     </div>
   );
 };
+
+export function isSupportedComponentType(type: string): boolean {
+  return type in componentMap || type === 'card' || type === 'table';
+}
+
+export function getAvailableComponentTypes(): string[] {
+  return Object.keys(componentMap);
+}
+
+export function BatchDynamicRenderer({
+  specs,
+  className,
+  onError,
+}: {
+  specs: ComponentSpec[];
+  className?: string;
+  onError?: (error: Error) => void;
+}) {
+  return (
+    <div className="flex flex-col gap-4">
+      {specs.map((spec) => (
+        <DynamicRenderer
+          key={spec.id}
+          spec={spec}
+          className={className}
+          onError={onError}
+        />
+      ))}
+    </div>
+  );
+}

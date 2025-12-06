@@ -100,100 +100,21 @@ function initializeServices() {
   return { dualRequestHandler, toolExecutor, sessionManagement, sessionStore, conversationStore, responseCacheService };
 }
 
+// Register built-in tools
 function registerBuiltInTools(toolExecutor: ToolExecutionService) {
-  // Tool 1: Get current date
-  toolExecutor.registerTool({
-    name: 'get_current_date',
-    description: 'Get the current date in various formats',
-    parameters: {
-      type: 'object',
-      properties: {
-        format: {
-          type: 'string',
-          enum: ['iso', 'readable', 'timestamp'],
-          description: 'Date format (iso, readable, or timestamp)',
-        },
-      },
-    },
-    execute: async (args: Record<string, unknown>) => {
-      const format = (args.format as string) || 'iso';
-      const now = new Date();
-
-      switch (format) {
-        case 'iso':
-          return now.toISOString();
-        case 'readable':
-          return now.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
-        case 'timestamp':
-          return now.getTime();
-        default:
-          return now.toISOString();
-      }
-    },
-  });
-
-  // Tool 2: Calculate mathematical expressions
-  toolExecutor.registerTool({
-    name: 'calculate',
-    description: 'Calculate mathematical expressions',
-    parameters: {
-      type: 'object',
-      properties: {
-        expression: {
-          type: 'string',
-          description: 'Mathematical expression (e.g., "2 + 2", "10 * 5")',
-        },
-      },
-    },
-    execute: async (args: Record<string, unknown>) => {
-      const expression = args.expression as string;
-
-      // Security: Only allow numbers and basic operators
-      if (!/^[\d\s\.\+\-\*\/\(\)]+$/.test(expression)) {
-        throw new Error('Invalid expression: only numbers and +, -, *, / allowed');
-      }
-
+  // Register all tools from the centralized BUILTIN_TOOLS list
+  // This includes Core tools (date, math, weather) and Odoo tools
+  import('./services/tool-execution.service').then(({ BUILTIN_TOOLS }) => {
+    BUILTIN_TOOLS.forEach(tool => {
       try {
-        // eslint-disable-next-line no-eval
-        const result = Function(`'use strict'; return (${expression})`)();
-        return {
-          expression,
-          result,
-        };
+        toolExecutor.registerTool(tool);
+        console.log(`[ToolRegistry] Registered tool: ${tool.name}`);
       } catch (error) {
-        throw new Error(`Calculation failed: ${(error as Error).message}`);
+        console.warn(`[ToolRegistry] Failed to register tool ${tool.name}:`, error);
       }
-    },
-  });
-
-  // Tool 3: Get weather (mock for now)
-  toolExecutor.registerTool({
-    name: 'get_weather',
-    description: 'Get weather information for a location',
-    parameters: {
-      type: 'object',
-      properties: {
-        location: {
-          type: 'string',
-          description: 'City or location name',
-        },
-      },
-    },
-    execute: async (args: Record<string, unknown>) => {
-      const location = args.location as string;
-      // Mock response - replace with real API in Phase 3
-      return {
-        location,
-        temperature: Math.floor(Math.random() * 25) + 15,
-        condition: ['Sunny', 'Cloudy', 'Rainy'][Math.floor(Math.random() * 3)],
-        humidity: Math.floor(Math.random() * 40) + 40,
-      };
-    },
+    });
+  }).catch(err => {
+    console.error('Failed to load BUILTIN_TOOLS:', err);
   });
 }
 
@@ -238,6 +159,36 @@ async function createApp(): Promise<FastifyInstance> {
 
   // Initialize services
   const { dualRequestHandler, toolExecutor, sessionManagement } = initializeServices();
+
+  // Global Error Handler
+  app.setErrorHandler((error, request, reply) => {
+    app.log.error(error);
+
+    // Zod Validation Errors
+    if (error instanceof z.ZodError) {
+      return reply.code(400).send({
+        success: false,
+        error: 'Validation error',
+        details: error.errors,
+      });
+    }
+
+    // Tool Execution Errors
+    if (error.message.includes('Tool execution failed')) {
+      return reply.code(502).send({
+        success: false,
+        error: 'Tool execution failed',
+        details: error.message
+      });
+    }
+
+    // Default Error
+    const statusCode = error.statusCode || 500;
+    return reply.code(statusCode).send({
+      success: false,
+      error: error.message || 'Internal Server Error',
+    });
+  });
 
   // ========================================================================
   // ROUTES

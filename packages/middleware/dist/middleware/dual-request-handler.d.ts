@@ -61,7 +61,11 @@ export declare class DualRequestHandler {
      * Infer tool arguments from user query
      * Simple implementation - in production, LLM would provide arguments
      */
+    /**
+     * Infer tool arguments from user query (Enriched for Odoo Tools)
+     */
     private inferToolArgs;
+    private removeKeywords;
     /**
      * Format tool results for response
      */

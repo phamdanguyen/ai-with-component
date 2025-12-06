@@ -5,6 +5,9 @@
 **Ngày cập nhật**: 2025-12-05
 **Mục đích**: Định nghĩa kiến trúc hệ thống, component, data flow
 
+> [!IMPORTANT]
+> Tài liệu này tuân thủ **[SYSTEM_CONTEXT.md](./SYSTEM_CONTEXT.md)**. Nếu có mâu thuẫn về Port hoặc Tên Module, hãy tham chiếu `SYSTEM_CONTEXT.md`.
+
 ---
 
 ## 📋 Mục Lục
@@ -31,6 +34,7 @@
 │                        USER BROWSER                             │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │  Next.js App (apps/web)                                  │  │
+│  │  ├─ URL: http://localhost:8080                           │  │
 │  │  ├─ ChatInterface Component                              │  │
 │  │  ├─ Progressive Disclosure UI                            │  │
 │  │  └─ Dynamic Component Renderer                           │  │

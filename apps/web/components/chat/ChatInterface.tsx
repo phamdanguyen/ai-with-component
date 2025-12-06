@@ -14,7 +14,12 @@ import { useDualStreamUI } from '@/hooks/useDualStreamUI';
 import { ErrorBoundary } from '@/components/generative/ErrorBoundary';
 import type { ChatMessage } from '@/lib/types';
 
-export function ChatInterface() {
+interface ChatInterfaceProps {
+  showHeader?: boolean;
+  className?: string;
+}
+
+export function ChatInterface({ showHeader = true, className = '' }: ChatInterfaceProps) {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sessionId, setSessionId] = useState<string>('');
@@ -86,27 +91,29 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div className={`flex flex-col h-full bg-white ${className}`}>
       {/* Header */}
-      <div className="border-b border-gray-200 p-4 flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">
-            GenUI Chat 💬
-          </h1>
-          <p className="text-sm text-gray-600 mt-1">
-            Ask me anything, I'll generate interactive components
-          </p>
-        </div>
-        {messages.length > 0 && (
-          <button
-            onClick={handleNewChat}
-            className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg
+      {showHeader && (
+        <div className="border-b border-gray-200 p-4 flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">
+              GenUI Chat 💬
+            </h1>
+            <p className="text-sm text-gray-600 mt-1">
+              Ask me anything, I'll generate interactive components
+            </p>
+          </div>
+          {messages.length > 0 && (
+            <button
+              onClick={handleNewChat}
+              className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg
                        hover:bg-gray-300 transition-colors"
-          >
-            New Chat
-          </button>
-        )}
-      </div>
+            >
+              New Chat
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-6">
@@ -238,10 +245,13 @@ export function ChatInterface() {
           <button
             type="submit"
             disabled={state.isLoading || !input.trim()}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg
+            className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg
                        hover:bg-blue-600 disabled:bg-gray-300
                        disabled:cursor-not-allowed transition-colors"
           >
+            {state.isLoading && (
+              <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            )}
             {state.isLoading ? 'Sending...' : 'Send'}
           </button>
         </form>

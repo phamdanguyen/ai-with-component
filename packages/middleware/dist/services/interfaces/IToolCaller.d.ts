@@ -83,6 +83,8 @@ export interface JSONSchemaProperty {
     enum?: (string | number)[];
     default?: unknown;
     items?: JSONSchemaProperty;
+    properties?: Record<string, JSONSchemaProperty>;
+    required?: string[];
 }
 /**
  * Tool Execution Result

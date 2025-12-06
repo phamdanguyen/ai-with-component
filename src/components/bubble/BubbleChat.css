@@ -1,0 +1,1100 @@
+/**
+ * BubbleChat Styles - Material Design 3 Edition
+ * Version: 9.4.0
+ *
+ * Updated: 2025-11-26
+ * Based on Material Design 3 (Material You) specification
+ *
+ * CSS Custom Properties used:
+ * --bubble-primary-color: Primary brand color (overrides M3 primary)
+ */
+
+@import '../../styles/material-tokens.css';
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.bubble-chat {
+  /* Brand color override */
+  --md-brand-color: var(--bubble-primary-color, #667eea);
+
+  /* Component tokens */
+  --bubble-transition: var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized);
+  --bubble-transition-fast: var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+
+  position: fixed;
+  z-index: 9999;
+  font-family: var(--md-sys-typescale-font-family);
+}
+
+.bubble-chat--bottom-right {
+  bottom: 24px;
+  right: 24px;
+}
+
+.bubble-chat--bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+
+/* Expanding animation */
+.bubble-chat--expanding .bubble-window {
+  animation: bubble-expand var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-accelerate) forwards;
+}
+
+@keyframes bubble-expand {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   FAB TOGGLE BUTTON (Material Design 3 FAB)
+   ============================================ */
+.bubble-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--md-sys-shape-corner-large);
+  border: none;
+  background: var(--md-brand-color);
+  color: var(--md-brand-on-color);
+  cursor: pointer;
+  box-shadow: var(--md-sys-elevation-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--bubble-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* State layer */
+.bubble-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--bubble-transition-fast);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.bubble-toggle:hover {
+  box-shadow: var(--md-sys-elevation-4);
+}
+
+.bubble-toggle:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.bubble-toggle:focus-visible {
+  outline: 2px solid var(--md-brand-color);
+  outline-offset: 2px;
+}
+
+.bubble-toggle:focus-visible::before {
+  opacity: var(--md-sys-state-focus-opacity);
+}
+
+.bubble-toggle:active {
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.bubble-toggle:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.bubble-toggle__icon {
+  transition: var(--bubble-transition);
+  width: 24px;
+  height: 24px;
+}
+
+.bubble-toggle__icon.hidden {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+  position: absolute;
+}
+
+.bubble-toggle__icon--close:not(.hidden) {
+  animation: icon-appear var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+@keyframes icon-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* Unread Badge */
+.bubble-toggle__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--md-sys-color-error);
+  border-radius: var(--md-sys-shape-corner-full);
+  border: 2px solid var(--md-sys-color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  font-weight: var(--md-sys-typescale-label-small-font-weight);
+  color: var(--md-sys-color-on-error);
+}
+
+.bubble-toggle__badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--md-sys-color-on-error);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.9); }
+}
+
+/* ============================================
+   CHAT WINDOW (Material Design 3 Card/Dialog)
+   ============================================ */
+.bubble-window {
+  position: absolute;
+  bottom: 72px;
+  right: 0;
+  width: 380px;
+  max-width: calc(100vw - 48px);
+  height: 520px;
+  max-height: calc(100vh - 120px);
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  box-shadow: var(--md-sys-elevation-3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: window-appear var(--md-sys-motion-duration-medium2) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.bubble-chat--bottom-left .bubble-window {
+  right: auto;
+  left: 0;
+}
+
+@keyframes window-appear {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================
+   HEADER (Material Design 3 Top App Bar)
+   ============================================ */
+.bubble-window__header {
+  padding: 12px 16px;
+  background: var(--md-brand-color);
+  color: var(--md-brand-on-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 56px;
+}
+
+.bubble-window__header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bubble-window__avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--md-sys-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.bubble-window__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bubble-window__agent-name {
+  font-size: var(--md-sys-typescale-title-medium-font-size);
+  font-weight: var(--md-sys-typescale-title-medium-font-weight);
+  letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing);
+  line-height: var(--md-sys-typescale-title-medium-line-height);
+}
+
+.bubble-window__status {
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  line-height: var(--md-sys-typescale-body-small-line-height);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bubble-window__status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.3);
+}
+
+.bubble-window__header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Icon Button (Material Design 3) */
+.bubble-window__action-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  border-radius: var(--md-sys-shape-corner-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--bubble-transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble-window__action-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--bubble-transition-fast);
+  border-radius: inherit;
+}
+
+.bubble-window__action-btn:hover::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.bubble-window__action-btn:active::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.bubble-window__action-btn svg {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.bubble-window__action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.bubble-window__action-btn:disabled::before {
+  display: none;
+}
+
+/* ============================================
+   MESSAGES AREA
+   ============================================ */
+.bubble-window__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--md-sys-color-surface);
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar */
+.bubble-window__messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bubble-window__messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bubble-window__messages::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.bubble-window__messages::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Welcome/Greeting */
+.bubble-window__greeting {
+  text-align: center;
+  padding: 32px 24px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+}
+
+.bubble-window__greeting-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: var(--md-sys-color-primary-container);
+  border-radius: var(--md-sys-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+/* ============================================
+   SUGGESTIONS (Quick Reply Chips) - v9.5.1 Unified
+   See main styles in SUGGESTIONS (Material Design 3 Chips) section below
+   ============================================ */
+
+/* ============================================
+   MESSAGE BUBBLES
+   ============================================ */
+.bubble-message {
+  max-width: 85%;
+  animation: message-appear var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+@keyframes message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bubble-message--user {
+  align-self: flex-end;
+}
+
+.bubble-message--assistant {
+  align-self: flex-start;
+}
+
+.bubble-message__content {
+  padding: 12px 16px;
+  border-radius: var(--md-sys-shape-corner-large);
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-letter-spacing);
+}
+
+.bubble-message--user .bubble-message__content {
+  background: var(--md-brand-color);
+  color: var(--md-brand-on-color);
+  border-bottom-right-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+.bubble-message--assistant .bubble-message__content {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-bottom-left-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+.bubble-message__time {
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.bubble-message--user .bubble-message__time {
+  text-align: right;
+}
+
+/* ============================================
+   AI RESPONSE ROW (Single Avatar Pattern)
+   ============================================ */
+.bubble-window__ai-response {
+  display: flex;
+  gap: 10px;
+  align-self: flex-start;
+  max-width: 85%;
+  animation: message-appear var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.bubble-window__ai-avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--md-brand-color);
+  color: var(--md-brand-on-color);
+  border-radius: var(--md-sys-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.bubble-window__ai-avatar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bubble-window__ai-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================
+   USER RESPONSE ROW (Avatar on Right)
+   ============================================ */
+.bubble-window__user-response {
+  display: flex;
+  gap: 10px;
+  align-self: flex-end;
+  max-width: 85%;
+  animation: message-appear var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.bubble-window__user-avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  border-radius: var(--md-sys-shape-corner-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.bubble-window__user-avatar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bubble-window__user-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.bubble-window__user-content .bubble-message__content {
+  background: var(--md-brand-color);
+  color: var(--md-brand-on-color);
+  border-bottom-right-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+/* Streaming Content */
+.bubble-window__streaming-content {
+  padding: 12px 16px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-radius: var(--md-sys-shape-corner-large);
+  border-bottom-left-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+/* AI Content bubble (inside ai-response row) */
+.bubble-window__ai-content .bubble-message__content {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-bottom-left-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+.bubble-window__streaming-text {
+  margin: 0;
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ============================================
+   THINKING INDICATOR (Material Design 3)
+   ============================================ */
+.bubble-window__thinking {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 12px 16px;
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+  border-radius: var(--md-sys-shape-corner-large);
+  border-bottom-left-radius: var(--md-sys-shape-corner-extra-small);
+}
+
+.bubble-window__thinking-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
+  color: inherit;
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+}
+
+.bubble-window__thinking-header:hover {
+  opacity: 0.85;
+}
+
+.bubble-window__thinking-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.bubble-window__thinking-dots span {
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: thinking-dot 1.4s infinite var(--md-sys-motion-easing-standard);
+}
+
+.bubble-window__thinking-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bubble-window__thinking-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinking-dot {
+  0%, 80%, 100% { transform: scale(1); opacity: 0.4; }
+  40% { transform: scale(1.3); opacity: 1; }
+}
+
+.bubble-window__thinking-label {
+  flex: 1;
+  text-align: left;
+}
+
+.bubble-window__expand-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--bubble-transition-fast);
+}
+
+.bubble-window__expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.bubble-window__thinking-content {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.bubble-window__thinking-content pre {
+  margin: 0;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: var(--md-sys-typescale-font-family);
+}
+
+.bubble-window__thinking-preview {
+  margin-top: 6px;
+  font-size: var(--md-sys-typescale-body-small-font-size);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* ============================================
+   TOOLS SECTION (Material Design 3)
+   ============================================ */
+.bubble-window__tools {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  border-radius: var(--md-sys-shape-corner-large);
+  align-self: flex-start;
+  max-width: 85%;
+  margin-bottom: 8px;
+  animation: message-appear var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.bubble-window__tools-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+}
+
+.bubble-window__tools-header:hover {
+  opacity: 0.85;
+}
+
+.bubble-window__tools-header svg:first-child {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.bubble-window__tools-header span {
+  flex: 1;
+  text-align: left;
+}
+
+.bubble-window__tools-list {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bubble-window__tool-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: var(--md-sys-shape-corner-small);
+  font-size: var(--md-sys-typescale-body-small-font-size);
+}
+
+.bubble-window__tool-item.running {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.bubble-window__tool-item.completed {
+  opacity: 0.7;
+}
+
+.bubble-window__tool-name {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+}
+
+.bubble-window__tool-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: tool-spin 0.8s linear infinite;
+}
+
+@keyframes tool-spin {
+  to { transform: rotate(360deg); }
+}
+
+.bubble-window__tool-check {
+  width: 16px;
+  height: 16px;
+  color: #22c55e;
+}
+
+/* ============================================
+   ERROR STATE
+   ============================================ */
+.bubble-window__error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  border-radius: var(--md-sys-shape-corner-medium);
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  animation: message-appear var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-emphasized-decelerate);
+}
+
+.bubble-window__error-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================
+   SUGGESTIONS (Material Design 3 Chips)
+   v9.5.2: Enhanced B2C styling - gradient buttons, 2x2 grid
+   ============================================ */
+.bubble-window__suggestions {
+  padding: 12px 16px 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(103,80,164,0.03) 100%);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  flex-shrink: 0;
+}
+
+.bubble-window__suggestion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: linear-gradient(145deg, #ffffff 0%, #f3f0ff 100%);
+  border: 1.5px solid rgba(103, 80, 164, 0.2);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #4a4458;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(103, 80, 164, 0.08),
+              inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.bubble-window__suggestion-btn i {
+  font-size: 15px;
+  color: #6750A4;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.bubble-window__suggestion-btn span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bubble-window__suggestion-btn:hover {
+  background: linear-gradient(145deg, #6750A4 0%, #7c5cbf 100%);
+  color: white;
+  border-color: #6750A4;
+  box-shadow: 0 6px 20px rgba(103, 80, 164, 0.35),
+              inset 0 1px 0 rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.bubble-window__suggestion-btn:hover i {
+  color: white;
+  transform: scale(1.1);
+}
+
+.bubble-window__suggestion-btn:active {
+  transform: scale(0.97) translateY(0);
+  box-shadow: 0 2px 8px rgba(103, 80, 164, 0.25);
+}
+
+/* Single column on very small screens */
+@media (max-width: 320px) {
+  .bubble-window__suggestions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   INPUT AREA (Material Design 3 Text Field)
+   ============================================ */
+.bubble-window__input-form {
+  display: flex;
+  padding: 12px 16px;
+  background: var(--md-sys-color-surface-container);
+  gap: 12px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.bubble-window__input-wrapper {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.bubble-window__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 18px;
+  border: none;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  background: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  font-size: var(--md-sys-typescale-body-large-font-size);
+  line-height: 48px;
+  outline: none;
+  transition: var(--bubble-transition-fast);
+  box-sizing: border-box;
+}
+
+.bubble-window__input::placeholder {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.bubble-window__input:focus {
+  box-shadow: inset 0 0 0 2px var(--md-brand-color);
+}
+
+.bubble-window__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Send Button (Material Design 3 FAB) */
+.bubble-window__send-btn {
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: var(--md-brand-color);
+  color: var(--md-brand-on-color);
+  border-radius: var(--md-sys-shape-corner-large);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--md-sys-elevation-2);
+  transition: var(--bubble-transition);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bubble-window__send-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--bubble-transition-fast);
+  border-radius: inherit;
+}
+
+.bubble-window__send-btn:hover:not(:disabled) {
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.bubble-window__send-btn:hover:not(:disabled)::before {
+  opacity: var(--md-sys-state-hover-opacity);
+}
+
+.bubble-window__send-btn:active:not(:disabled)::before {
+  opacity: var(--md-sys-state-pressed-opacity);
+}
+
+.bubble-window__send-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.bubble-window__send-btn svg {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.bubble-window__footer {
+  padding: 10px 16px;
+  background: var(--md-sys-color-surface-container);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--md-sys-typescale-label-small-font-size);
+  color: var(--md-sys-color-on-surface-variant);
+  flex-shrink: 0;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.bubble-window__powered-by {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bubble-window__expand-link {
+  background: none;
+  border: none;
+  color: var(--md-brand-color);
+  cursor: pointer;
+  font-size: var(--md-sys-typescale-label-medium-font-size);
+  font-weight: var(--md-sys-typescale-label-medium-font-weight);
+  padding: 6px 12px;
+  border-radius: var(--md-sys-shape-corner-small);
+  transition: var(--bubble-transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bubble-window__expand-link:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* ============================================
+   STREAMING MESSAGE
+   ============================================ */
+.bubble-window__streaming {
+  animation: fade-in var(--md-sys-motion-duration-short4) var(--md-sys-motion-easing-standard);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   RIPPLE EFFECT
+   ============================================ */
+.bubble-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.2;
+  transform: scale(0);
+  animation: ripple-effect var(--md-sys-motion-duration-medium4) var(--md-sys-motion-easing-standard) forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 480px) {
+  .bubble-chat--bottom-right,
+  .bubble-chat--bottom-left {
+    bottom: 16px;
+    right: 16px;
+    left: auto;
+  }
+
+  .bubble-chat--bottom-left {
+    right: auto;
+    left: 16px;
+  }
+
+  .bubble-window {
+    width: calc(100vw - 32px);
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+    bottom: 72px;
+    right: -8px;
+    border-radius: var(--md-sys-shape-corner-extra-large);
+  }
+
+  .bubble-chat--bottom-left .bubble-window {
+    left: -8px;
+    right: auto;
+  }
+
+  .bubble-window__thinking-content {
+    max-height: 100px;
+  }
+
+  .bubble-window__tools,
+  .bubble-window__thinking {
+    max-width: 90%;
+  }
+
+  .bubble-message {
+    max-width: 90%;
+  }
+
+  .bubble-window__send-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .bubble-window__input {
+    padding: 12px 16px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  .bubble-window {
+    background: var(--md-sys-color-surface-container);
+  }
+
+  .bubble-window__messages {
+    background: var(--md-sys-color-surface);
+  }
+
+  .bubble-message--assistant .bubble-message__content {
+    background: var(--md-sys-color-surface-container-high);
+  }
+
+  .bubble-window__input-form {
+    background: var(--md-sys-color-surface-container);
+  }
+
+  .bubble-window__input {
+    background: var(--md-sys-color-surface-container-high);
+  }
+
+  .bubble-window__footer {
+    background: var(--md-sys-color-surface-container);
+  }
+
+  .bubble-window__suggestion-btn {
+    background: var(--md-sys-color-surface-container);
+    border-color: var(--md-sys-color-outline);
+  }
+}

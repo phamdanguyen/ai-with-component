@@ -14,14 +14,22 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
+    "@crayonai/react-core": "^0.7.6",
+    "@crayonai/react-ui": "^0.9.6",
+    "@crayonai/stream": "^0.6.4",
     "classnames": "^2.5.1",
+    "eventsource-parser": "^3.0.6",
     "lucide-react": "^0.555.0",
     "next": "16.0.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.68.0",
     "recharts": "^3.5.1",
-    "swiper": "^12.0.3"
+    "swiper": "^12.0.3",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "tiny-invariant": "^1.3.3",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",

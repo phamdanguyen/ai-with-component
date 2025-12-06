@@ -279,11 +279,13 @@ function safeMathEval(expression) {
         throw new Error('Failed to evaluate expression');
     }
 }
+const odoo_1 = require("../tools/odoo");
 /**
  * Built-in Tools
  * Example tools that can be registered
  */
 exports.BUILTIN_TOOLS = [
+    ...odoo_1.ODOO_TOOLS,
     {
         name: 'get_current_date',
         description: 'Get the current date and time',

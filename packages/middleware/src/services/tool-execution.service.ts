@@ -382,11 +382,14 @@ function safeMathEval(expression: string): number {
   }
 }
 
+import { ODOO_TOOLS } from '../tools/odoo';
+
 /**
  * Built-in Tools
  * Example tools that can be registered
  */
 export const BUILTIN_TOOLS: ToolDefinition[] = [
+  ...ODOO_TOOLS,
   {
     name: 'get_current_date',
     description: 'Get the current date and time',

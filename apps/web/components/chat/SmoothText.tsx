@@ -17,7 +17,7 @@ interface SmoothTextProps {
 export function SmoothText({ text, speed = 10 }: SmoothTextProps) {
     const [displayedText, setDisplayedText] = useState('');
     const indexRef = useRef(0);
-    const rafRef = useRef<number>();
+    const rafRef = useRef<number | null>(null);
 
     useEffect(() => {
         // If text was reset (e.g. new chat), reset immediately

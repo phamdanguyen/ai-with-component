@@ -9,6 +9,9 @@
 ---
 
 ## 📋 Mục Lục
+> [!IMPORTANT]
+> Tài liệu này tuân thủ **[SYSTEM_CONTEXT.md](./SYSTEM_CONTEXT.md)**. Nếu có mâu thuẫn về Port hoặc Tên Module, hãy tham chiếu `SYSTEM_CONTEXT.md`.
+
 1. [System Requirements](#system-requirements)
 2. [Development Environment](#development-environment)
 3. [Backend Services Specification](#backend-services-specification)
@@ -84,9 +87,9 @@ GEMINI_API_KEY=your_api_key_here
 
 # Optional (Phase 4+)
 ODOO_URL=http://localhost:8069
-ODOO_DATABASE=odoo_db
+ODOO_DATABASE=odoo_17_dev
 ODOO_USERNAME=admin
-ODOO_PASSWORD=password
+ODOO_PASSWORD=admin
 
 # Optional (Phase 3+)
 DATABASE_URL=postgresql://user:password@localhost:5432/chat_db
@@ -105,14 +108,14 @@ REDIS_URL=redis://localhost:6379
 pnpm dev
 
 # Or individually:
-pnpm dev -F web        # Next.js (port 3000)
+pnpm dev -F web        # Next.js (port 8080)
 pnpm dev -F middleware # Fastify (port 3001)
 ```
 
 #### 6. Verify Setup
-- Frontend: http://localhost:3000
+- Frontend: http://localhost:8080
 - Backend API: http://localhost:3001/health (should return 200)
-- Chat UI: http://localhost:3000/playground
+- Chat UI: http://localhost:8080/playground
 
 ---
 

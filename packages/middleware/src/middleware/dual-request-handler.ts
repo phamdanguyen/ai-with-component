@@ -501,21 +501,59 @@ export class DualRequestHandler {
    * Infer tool arguments from user query
    * Simple implementation - in production, LLM would provide arguments
    */
+
+  /**
+   * Infer tool arguments from user query (Enriched for Odoo Tools)
+   */
   private inferToolArgs(tool: any, userQuery: string): Record<string, unknown> {
-    // For built-in tools, provide default arguments
+    const query = userQuery.toLowerCase();
+
+    // Built-in Tools
     if (tool.name === 'get_current_date') {
       return { format: 'iso' };
     }
 
     if (tool.name === 'calculate') {
-      // Try to extract mathematical expression from query
-      const match = userQuery.match(/\d+\s*[\+\-\*\/]\s*\d+/);
-      if (match) {
-        return { expression: match[0] };
-      }
+      const match = userQuery.match(/[\d\.]+\s*[\+\-\*\/]\s*[\d\.]+/);
+      if (match) return { expression: match[0] };
+    }
+
+    // Odoo Tools - Search Logic
+    if (tool.name === 'search_product') {
+      // Extract product name: "search product desk" -> "desk"
+      const keywords = ['product', 'san pham', 'tim', 'search', 'find'];
+      const cleanQuery = this.removeKeywords(query, keywords);
+      return { query: cleanQuery || query };
+    }
+
+    if (tool.name === 'search_customer') {
+      const keywords = ['customer', 'khach hang', 'partner', 'doi tac', 'phone', 'email'];
+      const cleanQuery = this.removeKeywords(query, keywords);
+      return { query: cleanQuery || query };
+    }
+
+    if (tool.name === 'lookup_contract') {
+      const keywords = ['contract', 'hop dong', 'bao hiem', 'policy'];
+      const cleanQuery = this.removeKeywords(query, keywords);
+      return { query: cleanQuery || query };
+    }
+
+    if (tool.name === 'get_order_status') {
+      // Extract SO number like SO123 or S0001
+      const match = userQuery.match(/S[O0]\d{3,5}/i);
+      if (match) return { order_name: match[0].toUpperCase() };
+      return { order_name: 'SO001' }; // Fallback for MVP
     }
 
     return {};
+  }
+
+  private removeKeywords(text: string, keywords: string[]): string {
+    let result = text;
+    keywords.forEach(kw => {
+      result = result.replace(new RegExp(kw, 'gi'), '');
+    });
+    return result.trim();
   }
 
   /**

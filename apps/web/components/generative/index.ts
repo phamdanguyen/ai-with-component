@@ -8,7 +8,11 @@
 // Core Renderer
 export { DynamicRenderer } from './DynamicRenderer';
 export type { DynamicRendererProps } from './DynamicRenderer';
-export { isValidComponentType, getSupportedComponentTypes, componentRegistry } from './DynamicRenderer';
+export {
+  isSupportedComponentType as isValidComponentType,
+  getAvailableComponentTypes as getSupportedComponentTypes,
+  BatchDynamicRenderer
+} from './DynamicRenderer';
 
 // Error Boundary
 export { ErrorBoundary, withErrorBoundary } from './ErrorBoundary';
