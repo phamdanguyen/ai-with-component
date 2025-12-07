@@ -11,6 +11,9 @@ services:
       - NODE_ENV=production
       - NEXT_PUBLIC_API_URL=http://genui-middleware:3001/api
       - BACKEND_API_URL=http://genui-middleware:3001/api
+      - ODOO_API_URL=http://host.docker.internal:8069
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     networks:
       - genui-network
     restart: unless-stopped
@@ -32,12 +35,31 @@ services:
     networks:
       - genui-network
     restart: unless-stopped
-    depends_on:
-      - frontend
+    # depends_on:
+    #   - frontend
+
+  # Database - PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: genui-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=genui
+      - POSTGRES_PASSWORD=genui_password
+      - POSTGRES_DB=genui_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - genui-network
+    restart: unless-stopped
 
 networks:
   genui-network:
     driver: bridge
+
+volumes:
+  postgres_data:
 
 # Usage:
 # 1. Build images: docker-compose build

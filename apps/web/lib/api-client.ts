@@ -13,7 +13,7 @@ import type { DualResponse } from './types';
  * Matches backend StreamChunk interface
  */
 export interface StreamChunk {
-  type: 'text' | 'component' | 'tool' | 'complete' | 'error';
+  type: 'text' | 'component' | 'tool' | 'complete' | 'error' | 'suggestions' | 'rag';
   data: string | Record<string, unknown> | unknown;
   timestamp: number;
   id?: string;
@@ -75,7 +75,8 @@ export class ChatAPIClient {
    */
   async *streamMessage(
     message: string,
-    sessionId?: string
+    sessionId?: string,
+    options?: { deepThink?: boolean }
   ): AsyncGenerator<StreamChunk, void, unknown> {
     // Use local Next.js API route for streaming
     // The baseURL is likely '/api/backend' or empty for relative calls to Next.js API
@@ -87,6 +88,9 @@ export class ChatAPIClient {
     url.searchParams.set('message', message);
     if (sessionId) {
       url.searchParams.set('sessionId', sessionId);
+    }
+    if (options?.deepThink) {
+      url.searchParams.set('deep_think', 'true');
     }
 
     const response = await fetch(url.toString());

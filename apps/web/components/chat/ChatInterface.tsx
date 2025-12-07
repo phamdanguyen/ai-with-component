@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { Brain } from 'lucide-react';
 import { MessageWithComponent } from './MessageWithComponent';
 import { SmoothText } from './SmoothText';
 import { useDualStreamUI } from '@/hooks/useDualStreamUI';
@@ -23,6 +24,7 @@ export function ChatInterface({ showHeader = true, className = '' }: ChatInterfa
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sessionId, setSessionId] = useState<string>('');
+  const [isDeepThinkEnabled, setIsDeepThinkEnabled] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +49,7 @@ export function ChatInterface({ showHeader = true, className = '' }: ChatInterfa
     setInput('');
 
     // Send to API with current sessionId
-    await sendMessage(input, sessionId || undefined);
+    await sendMessage(input, sessionId || undefined, { deepThink: isDeepThinkEnabled });
   };
 
 
@@ -172,6 +174,20 @@ export function ChatInterface({ showHeader = true, className = '' }: ChatInterfa
             {(state.isLoading || state.textSummary) && (
               <div className="flex justify-start">
                 <div className="bg-gray-100 text-gray-900 rounded-2xl rounded-tl-none p-4 max-w-2xl">
+                  {/* Deep Think Logs */}
+                  {state.deepThinkLogs.length > 0 && (
+                    <details className="mb-3 text-xs">
+                      <summary className="cursor-pointer font-medium text-gray-500 hover:text-gray-700 select-none flex items-center gap-1">
+                        <Brain size={12} />
+                        Thinking Process ({state.deepThinkLogs.length} steps)
+                      </summary>
+                      <div className="mt-2 pl-2 border-l-2 border-purple-200 space-y-1.5 max-h-40 overflow-y-auto">
+                        {state.deepThinkLogs.map((log, i) => (
+                          <div key={i} className="text-gray-600 font-mono bg-white/50 p-1.5 rounded">{log}</div>
+                        ))}
+                      </div>
+                    </details>
+                  )}
                   {state.componentSpec ? (
                     <ErrorBoundary componentName="StreamingMessage" fallback={<div>Error rendering component</div>}>
                       <MessageWithComponent
@@ -184,6 +200,20 @@ export function ChatInterface({ showHeader = true, className = '' }: ChatInterfa
                       <SmoothText text={state.textSummary} />
                       {state.isLoading && <span className="inline-block w-1.5 h-4 ml-1 align-middle bg-gray-400 animate-pulse" />}
                     </p>
+                  )}
+                  {/* Suggestions */}
+                  {state.suggestions.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2 pt-2 border-t border-gray-200">
+                      {state.suggestions.map((sugg, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setInput(sugg)}
+                          className="text-xs bg-white border border-gray-200 hover:border-blue-400 hover:text-blue-600 px-3 py-1.5 rounded-full transition-colors"
+                        >
+                          {sugg}
+                        </button>
+                      ))}
+                    </div>
                   )}
                 </div>
               </div>
@@ -228,8 +258,21 @@ export function ChatInterface({ showHeader = true, className = '' }: ChatInterfa
         </div>
       )}
 
-      {/* Input */}
       <div className="border-t border-gray-200 p-4 bg-white">
+        <div className="flex items-center gap-2 mb-2">
+          <button
+            type="button"
+            onClick={() => setIsDeepThinkEnabled(!isDeepThinkEnabled)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors
+               ${isDeepThinkEnabled
+                ? 'bg-purple-100 text-purple-700 border border-purple-200'
+                : 'bg-gray-100 text-gray-500 border border-gray-200 hover:bg-gray-200'
+              }`}
+          >
+            <Brain size={14} className={isDeepThinkEnabled ? 'fill-current' : ''} />
+            Deep Think
+          </button>
+        </div>
         <form onSubmit={handleSendMessage} className="flex gap-2">
           <input
             ref={inputRef}

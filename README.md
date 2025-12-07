@@ -25,14 +25,19 @@ GenUI Platform is a **Generative UI system** that transforms natural language qu
 ### Prerequisites
 - Node.js >= 18.0.0
 - pnpm >= 8.0.0
+- **Odoo** (with `odoo_ai_chat` addon) running at `localhost:8069`
 - Docker & Docker Compose (optional)
 
 ### Development Mode
 ```bash
-# Install dependencies
+# 1. Start Odoo Backend
+# Ensure Odoo is running at localhost:8069 with odoo_ai_chat installed
+
+# 2. Install dependencies
 pnpm install
 
-# Start all services (frontend on 3002, backend on 3001)
+# 3. Start Frontend (Directly Proxied to Odoo)
+# Frontend runs on 3002
 pnpm dev
 
 # Access app: http://localhost:3002/playground

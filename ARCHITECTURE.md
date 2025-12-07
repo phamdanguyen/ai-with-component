@@ -8,22 +8,22 @@
 
 ## 📐 Architecture Overview
 
-GenUI Platform follows a **modern monorepo architecture** with clear separation between frontend, backend, and shared components. The system implements a **dual-stream response pattern** where text summaries and component specifications are generated in parallel for optimal user experience.
+## 📐 Architecture Overview
+**Sprint 7 Update**: `ai-with-component` now serves as the Direct Frontend for Odoo. The Middleware is bypassed for the main chat loop (`/api/chat/stream`), which connects directly to Odoo's AI Backend.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    GenUI Platform                           │
 ├──────────────────────────────┬──────────────────────────────┤
-│        Frontend (Next.js)     │      Backend (Fastify)      │
+│        Frontend (Next.js)     │      Odoo Backend           │
 │  ┌──────────────────────┐    │  ┌────────────────────────┐  │
-│  │ Chat Interface UI    │    │  │ Component Generation   │  │
-│  │ Message Display      │────┼──│ LLM Service            │  │
-│  │ API Client           │    │  │ Session Manager        │  │
-│  │ State Management     │    │  │ Request Handler        │  │
+│  │ Chat Interface UI    │    │  │ AI Orchestrator        │  │
+│  │ Message Display      │────┼──│ Tool Execution         │  │
+│  │  (Next.js Proxy)     │    │  │ RAG Pipeline           │  │
 │  └──────────────────────┘    │  └────────────────────────┘  │
 │                              │                              │
-│   Port: 3002 (dev/Docker)   │      Port: 3001             │
-│            or 3000           │                              │
+│   Port: 3002/8080           │      Port: 8069             │
+│                              │                              │
 └──────────────────────────────┴──────────────────────────────┘
          ↓                            ↓
 ┌────────────────────────────────────────────────┐

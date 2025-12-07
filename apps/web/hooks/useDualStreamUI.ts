@@ -26,11 +26,13 @@ export interface DualStreamState {
   error: string | null;
   retryCount: number;
   lastMessage: string | null;
+  deepThinkLogs: string[];
+  suggestions: string[];
 }
 
 export interface UseDualStreamUIReturn {
   state: DualStreamState;
-  sendMessage: (message: string, sessionId?: string) => Promise<void>;
+  sendMessage: (message: string, sessionId?: string, options?: { deepThink?: boolean }) => Promise<void>;
   retry: () => Promise<void>;
   reset: () => void;
 }
@@ -53,6 +55,8 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
     error: null,
     retryCount: 0,
     lastMessage: null,
+    deepThinkLogs: [],
+    suggestions: [],
   });
 
   /**
@@ -60,7 +64,7 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
    * Phase 2: Uses SSE streaming for real-time updates
    */
   const sendMessage = useCallback(
-    async (message: string, customSessionId?: string) => {
+    async (message: string, customSessionId?: string, options?: { deepThink?: boolean }) => {
       setState((prev) => ({
         textSummary: '',
         componentSpec: null,
@@ -70,6 +74,8 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
         error: null,
         retryCount: prev.retryCount,
         lastMessage: message,
+        deepThinkLogs: [],
+        suggestions: [],
       }));
 
       try {
@@ -82,7 +88,8 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
           // Stream chunks from server
           for await (const chunk of chatAPI.streamMessage(
             message,
-            customSessionId || sessionId
+            customSessionId || sessionId,
+            options
           )) {
             // Handle text chunks - update state incrementally
             if (chunk.type === 'text') {
@@ -102,6 +109,26 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
                 ...prev,
                 componentSpec: fullComponentSpec,
                 isComponentReady: true,
+              }));
+            }
+
+
+
+            // Handle suggestions
+            if (chunk.type === 'suggestions') {
+              const suggs = Array.isArray(chunk.data) ? chunk.data : [String(chunk.data)];
+              setState((prev) => ({
+                ...prev,
+                suggestions: suggs as string[]
+              }));
+            }
+
+            // Handle RAG (process log)
+            if (chunk.type === 'rag') {
+              const logs = [`RAG: Retrieved context from Odoo (${JSON.stringify(chunk.data)})`];
+              setState((prev) => ({
+                ...prev,
+                deepThinkLogs: [...prev.deepThinkLogs, ...logs]
               }));
             }
 
@@ -179,6 +206,8 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
           error: errorMessage,
           retryCount: prev.retryCount,
           lastMessage: prev.lastMessage,
+          deepThinkLogs: [],
+          suggestions: [],
         }));
 
         console.error('API error:', err);
@@ -202,6 +231,7 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
     }));
 
     await sendMessage(state.lastMessage, sessionId);
+    // Note: retry doesn't persist options currently, but could be enhanced later if needed.
   }, [state.lastMessage, state.retryCount, sendMessage, sessionId]);
 
   /**
@@ -217,6 +247,8 @@ export function useDualStreamUI(sessionId?: string): UseDualStreamUIReturn {
       error: null,
       retryCount: 0,
       lastMessage: null,
+      deepThinkLogs: [],
+      suggestions: [],
     });
   }, []);
 

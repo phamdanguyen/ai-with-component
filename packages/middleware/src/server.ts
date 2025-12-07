@@ -11,8 +11,11 @@ import * as path from 'path';
 import process from 'process';
 
 // Try to load from multiple locations
-dotenv.config({ path: path.resolve(process.cwd(), '../../.env') }); // From packages/middleware
-dotenv.config({ path: path.resolve(process.cwd(), '.env') }); // Local .env
+const rootEnv = path.resolve(process.cwd(), '../../.env');
+const localEnv = path.resolve(process.cwd(), '.env');
+
+const rootResult = dotenv.config({ path: rootEnv, override: true }); // From packages/middleware
+const localResult = dotenv.config({ path: localEnv, override: true }); // Local .env
 
 import Fastify, { FastifyInstance } from 'fastify';
 import { z } from 'zod';
@@ -25,7 +28,12 @@ import { FileSessionStore } from './services/storage/FileSessionStore';
 import { FileConversationStore } from './services/storage/FileConversationStore';
 import { SessionManagementService } from './services/session-management.service';
 import { ResponseCacheService } from './services/ResponseCacheService';
+import { OdooAdapterService } from './services/odoo-adapter.service';
 import type { RequestContext } from './types/core.types';
+import { PrismaClient } from '@prisma/client';
+import { AuthService } from './services/auth.service';
+import authPlugin from './plugins/auth';
+import authRoutes from './routes/auth.routes';
 
 // ============================================================================
 // VALIDATION SCHEMAS (Zod)
@@ -97,7 +105,15 @@ function initializeServices() {
     responseCacheService
   );
 
-  return { dualRequestHandler, toolExecutor, sessionManagement, sessionStore, conversationStore, responseCacheService };
+  const odooUrl = process.env.ODOO_URL || 'http://localhost:8069';
+  const odooAdapter = new OdooAdapterService(odooUrl);
+  console.log(`[OdooIntegration] Initialized OdooAdapterService with URL: ${odooUrl}`);
+
+  // Create Prisma Client and Auth Service
+  const prisma = new PrismaClient();
+  const authService = new AuthService(prisma);
+
+  return { dualRequestHandler, toolExecutor, sessionManagement, sessionStore, conversationStore, responseCacheService, odooAdapter, authService, prisma };
 }
 
 // Register built-in tools
@@ -158,7 +174,13 @@ async function createApp(): Promise<FastifyInstance> {
   });
 
   // Initialize services
-  const { dualRequestHandler, toolExecutor, sessionManagement } = initializeServices();
+  const { dualRequestHandler, toolExecutor, sessionManagement, odooAdapter, authService } = initializeServices();
+
+  // Register Auth Plugin
+  app.register(authPlugin, { authService });
+
+  // Register Auth Routes
+  app.register(authRoutes);
 
   // Global Error Handler
   app.setErrorHandler((error, request, reply) => {
@@ -264,7 +286,7 @@ async function createApp(): Promise<FastifyInstance> {
   });
 
   // Streaming chat endpoint (Server-Sent Events)
-  // Phase 2 Enhancement: Real-time streaming responses
+  // Integrated with Odoo Adapter
   app.get<{ Querystring: { message?: string; sessionId?: string } }>(
     '/api/chat/stream',
     async (request, reply) => {
@@ -278,12 +300,7 @@ async function createApp(): Promise<FastifyInstance> {
           });
         }
 
-        // Create request context
-        const context: RequestContext = {
-          message: message as string,
-          sessionId: (request.query.sessionId as string) || `session-${Date.now()}`,
-          conversationHistory: [],
-        };
+        const sessionId = (request.query.sessionId as string) || `session-${Date.now()}`;
 
         // Set SSE headers
         reply.header('Content-Type', 'text/event-stream');
@@ -291,9 +308,10 @@ async function createApp(): Promise<FastifyInstance> {
         reply.header('Connection', 'keep-alive');
         reply.header('Access-Control-Allow-Origin', '*');
 
-        // Stream response
-        await dualRequestHandler.handleStream(context, (chunk) => {
-          // Send chunk in SSE format
+        // Use Odoo Adapter to stream from Odoo
+        console.log(`[Stream] Proxying to Odoo for session: ${sessionId}, message: "${message}"`);
+
+        await odooAdapter.streamChat(message as string, sessionId, (chunk) => {
           reply.raw.write(`data: ${JSON.stringify(chunk)}\n\n`);
         });
 
